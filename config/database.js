@@ -44,7 +44,8 @@ module.exports = ({ env }) => {
     },
     sqlite: {
       connection: {
-        filename: path.join(__dirname, '..', env('DATABASE_FILENAME', '.tmp/data.db')),
+        // Use the persistent disk location on Render
+        filename: path.join(__dirname, '..', env('DATABASE_FILENAME', '/mnt/data/data.db')), // Change this line
       },
       useNullAsDefault: true,
     },
